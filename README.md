@@ -4,8 +4,8 @@ A collection of extensions for manipulating paths in Inkscape.
 
 ### Installing
 
-Copy the .py and .inx files into your Inkscape extensions directory
-(typically `~/.config/inkscape/extensions`).
+Copy the .py and .inx files from `extensions` into your Inkscape extensions
+directory (typically `~/.config/inkscape/extensions`).
 See http://wiki.inkscape.org/wiki/index.php/Script_extensions#Installing.
 
 ## Sheriff Stars
