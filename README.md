@@ -2,6 +2,12 @@
 
 A collection of extensions for manipulating paths in Inkscape.
 
+### Installing
+
+Copy the .py and .inx files into your Inkscape extensions directory
+(typically `~/.config/inkscape/extensions`).
+See http://wiki.inkscape.org/wiki/index.php/Script_extensions#Installing.
+
 ## Sheriff Stars
 
 Sheriff stars typically have 5 or 6 points and also have a circle at the end
@@ -39,10 +45,11 @@ wearing the badge.
 </tr></table>
 
 If the "Show inner circle" option is selected, then a circle touching the
-inner points of the star will be included in the output.
+inner points of the star will be included in the output. Here is an example
+for a 5-pointed star:
 
 <img src="images/sstar-5-raw-inner.png" width="150px">
 
-## Sheriff Stars
+## X-agrams
 
 ## Mutual Cut Line
