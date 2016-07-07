@@ -62,8 +62,8 @@ is not the center of the star.
 </tr><tr>
 <td><img src="images/circle.png" width="150px"></td>
 <td><img src="images/5gram-options.png" width="150px"></td>
-<td><img src="images/5gram-s2.png" width="150px"></td>
 <td><img src="images/5gram-s1.png" width="150px"></td>
+<td><img src="images/5gram-s2.png" width="150px"></td>
 </tr><tr>
 <td>Create and select a circle</td>
 <td>Launch extension and set options</td>
