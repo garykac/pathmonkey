@@ -11,8 +11,8 @@ See http://wiki.inkscape.org/wiki/index.php/Script_extensions#Installing.
 ## Sheriff Stars
 
 Sheriff stars typically have 5 or 6 points and also have a circle at the end
-of each point so that the badge can't accidentally stab the officer when
-wearing the badge.
+of each point so that the badge can't accidentally stab the officer while
+they're wearing the badge.
 
 <table><tr>
 <td colspan="5">6-pointed Sheriff Stars</td>
@@ -55,7 +55,7 @@ for a 5-pointed star:
 X-agrams are stars with a circumscribed circle. While these can be drawn
 separately, it can be tricky to properly align the circle and the star,
 especially for odd-count stars where the center of the star's bounding box
-is not the center of the star.
+is not the true center of the star.
 
 <table><tr>
 <td colspan="4">Pentagram (5-agram)</td>
@@ -106,18 +106,18 @@ connected via an inner circle.
 ## Mutual Cut Line
 
 Even though Inkscape has a Cut operation, I never seem to be able to remember
-which line will cut and which one is doing the cutting. Also, sometimes I
+which line will be cut and which one is doing the cutting. Also, sometimes I
 want them to cut each other and keep all the segments.
 
-Given 2 lines that intersect:
+So, given 2 lines that intersect:
 
 <img src="images/lines-init.png" width="200px">
 
-This will generate the 4 segments where they divide each other:
+This extension will generate the 4 segments where they divide each other:
 
 <img src="images/lines-cut.png" width="200px">
 
-Note that this leaves the original lines in place, so you'll need to delete
+Note that this leaves the original 2 lines in place, so you'll need to delete
 them if you no longer want them around:
 
 <img src="images/lines-selected.png" width="200px">
