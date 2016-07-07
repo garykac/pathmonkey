@@ -30,6 +30,10 @@ they're wearing the badge.
 <td>Union the shapes</td>
 </tr></table>
 
+The components (star, circles) are kept separate so that additional processing
+can be performed on each component if desired. To produce a sheriff star
+outline, just `union` the various shapes together.
+
 <table><tr>
 <td colspan="4">5- and 7-pointed Sheriff Stars</td>
 </tr><tr>
