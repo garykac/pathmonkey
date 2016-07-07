@@ -52,4 +52,38 @@ for a 5-pointed star:
 
 ## X-agrams
 
+X-agrams are stars with a circumscribed circle. While these can be drawn
+separately, it can be tricky to properly align the circle and the star,
+especially for odd-count stars where the center of the star's bounding box
+is not the center of the star.
+
+<table><tr>
+<td colspan="4">Pentagram (5-agram)</td>
+</tr><tr>
+<td><img src="images/circle.png" width="150px"></td>
+<td><img src="images/5gram-options.png" width="150px"></td>
+<td><img src="images/5gram-s2.png" width="150px"></td>
+<td><img src="images/5gram-s1.png" width="150px"></td>
+</tr><tr>
+<td>Create and select a circle</td>
+<td>Launch extension and set options</td>
+<td>Basic pentagram (vertex skip=2)</td>
+<td>Vertex skip = 1</td>
+</tr></table>
+
+<table><tr>
+<td colspan="3">Septagram (7-agram)</td>
+</tr><tr>
+<td><img src="images/7gram-s1.png" width="150px"></td>
+<td><img src="images/7gram-s3.png" width="150px"></td>
+<td><img src="images/7gram-s3.png" width="150px"></td>
+</tr><tr>
+<td>Vertex skip = 1</td>
+<td>Vertex skip = 2</td>
+<td>Vertex skip = 3</td>
+</tr></table>
+
+In addition to connecting each point along the outer circle, they can also be
+connected via an inner circle.
+
 ## Mutual Cut Line
