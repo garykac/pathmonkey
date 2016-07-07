@@ -38,6 +38,11 @@ wearing the badge.
 <td><img src="images/sstar-7-outline.png" width="150px"></td>
 </tr></table>
 
+If the "Show inner circle" option is selected, then a circle touching the
+inner points of the star will be included in the output.
+
+<img src="images/sstar-5-raw-inner.png" width="150px">
+
 ## Sheriff Stars
 
 ## Mutual Cut Line
