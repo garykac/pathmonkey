@@ -67,8 +67,8 @@ is not the center of the star.
 </tr><tr>
 <td>Create and select a circle</td>
 <td>Launch extension and set options</td>
-<td>Basic pentagram (vertex skip=2)</td>
-<td>Vertex skip = 1</td>
+<td>Vertex skip = 1 (pentagon)</td>
+<td>Vertex skip = 2 (pentagram)</td>
 </tr></table>
 
 <table><tr>
@@ -87,17 +87,19 @@ In addition to connecting each point along the outer circle, they can also be
 connected via an inner circle.
 
 <table><tr>
-<td colspan="4">Septagram (7-agram) with inner connection</td>
+<td colspan="5">Septagram (7-agram) with inner connection</td>
 </tr><tr>
 <td><img src="images/7gram-inner-s1.png" width="150px"></td>
 <td><img src="images/7gram-inner-s2.png" width="150px"></td>
 <td><img src="images/7gram-inner-s3.png" width="150px"></td>
 <td><img src="images/7gram-inner-s4.png" width="150px"></td>
+<td><img src="images/7gram-inner-s5.png" width="150px"></td>
 </tr><tr>
 <td>Vertex skip = 1</td>
 <td>Vertex skip = 2</td>
 <td>Vertex skip = 3</td>
 <td>Vertex skip = 4</td>
+<td>Vertex skip = 5</td>
 </tr></table>
 
 
@@ -109,13 +111,13 @@ want them to cut each other and keep all the segments.
 
 Given 2 lines that intersect:
 
-<img src="images/lines-init.png" width="150px">
+<img src="images/lines-init.png" width="200px">
 
 This will generate the 4 segments where they divide each other:
 
-<img src="images/lines-cut.png" width="150px">
+<img src="images/lines-cut.png" width="200px">
 
 Note that this leaves the original lines in place, so you'll need to delete
 them if you no longer want them around:
 
-<img src="images/lines-selected.png" width="150px">
+<img src="images/lines-selected.png" width="200px">
