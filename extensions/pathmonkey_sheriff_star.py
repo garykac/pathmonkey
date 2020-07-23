@@ -5,6 +5,7 @@ Create n-pointed sheriff star.
 """
 import inkex
 from math import *
+from lxml import etree
 
 def addPathCommand(a, cmd):
 	for x in cmd:
@@ -14,30 +15,30 @@ class SheriffStarEffect(inkex.Effect):
 
 	def __init__(self):
 		inkex.Effect.__init__(self)
-		self.OptionParser.add_option('--tab',
-			action = 'store', type = 'string', dest = 'tab')
-		self.OptionParser.add_option('--points',
-			action='store', type='int', dest='points', default=5,
+		self.arg_parser.add_argument('--tab',
+			action = 'store', type = str, dest = 'tab')
+		self.arg_parser.add_argument('--points',
+			action='store', type=int, dest='points', default=5,
 			help='Number of points (or sides)')
-		self.OptionParser.add_option('--star-tip-ratio',
-			action='store', type='float', dest='star_tip_ratio', default=10,
+		self.arg_parser.add_argument('--star-tip-ratio',
+			action='store', type=float, dest='star_tip_ratio', default=10,
 			help='Star tip circle % (star tip circle radius as a percentage of the outer radius)')
-		self.OptionParser.add_option('--inner-ratio',
-			action='store', type='float', dest='inner_ratio', default=58,
+		self.arg_parser.add_argument('--inner-ratio',
+			action='store', type=float, dest='inner_ratio', default=58,
 			help='Inner circle % (inner radius as a percentage of the outer radius)')
-		self.OptionParser.add_option('--show-inner-circle',
-			action='store', type='inkbool', dest='show_inner_circle', default=False,
+		self.arg_parser.add_argument('--show-inner-circle',
+			action='store', type=inkex.Boolean, dest='show_inner_circle', default=False,
 			help='Show inner circle')
 
 	def effect(self):
-		layer = self.current_layer;
+		layer = self.svg.get_current_layer();
 
-		if len(self.selected) == 0:
+		if len(self.svg.selected) == 0:
 			inkex.errormsg('Please select a circle or ellipse.')
 			exit()
 
 		numValid = 0
-		for id, obj in self.selected.iteritems():
+		for id, obj in self.svg.selected.items():
 			cx,cy, rx,ry = 0,0, 0,0
 			style = ''
 			isValid = False
@@ -79,10 +80,10 @@ class SheriffStarEffect(inkex.Effect):
 
 			if showInnerCircle:
 				if not isEllipse:
-					cin = inkex.etree.SubElement(layer, inkex.addNS('circle','svg'))
+					cin =etree.SubElement(layer, inkex.addNS('circle','svg'))
 					cin.set('r', str(rx * innerRatio))
 				else:
-					cin = inkex.etree.SubElement(layer, inkex.addNS('ellipse','svg'))
+					cin =etree.SubElement(layer, inkex.addNS('ellipse','svg'))
 					cin.set('rx', str(rx * innerRatio))
 					cin.set('ry', str(ry * innerRatio))
 				cin.set('cx', str(cx))
@@ -110,7 +111,7 @@ class SheriffStarEffect(inkex.Effect):
 
 			# Add circles at each star tip.
 			for pt in out_pts:
-				cin = inkex.etree.SubElement(layer, inkex.addNS('circle','svg'))
+				cin =etree.SubElement(layer, inkex.addNS('circle','svg'))
 				cin.set('r', str(rx * starTipRatio))
 				cin.set('cx', str(pt[0]))
 				cin.set('cy', str(pt[1]))
@@ -144,7 +145,7 @@ class SheriffStarEffect(inkex.Effect):
 				addPathCommand(pts, ['z'])
 
 			# Create star polygon as a single path.
-			l1 = inkex.etree.SubElement(layer, inkex.addNS('path','svg'))
+			l1 =etree.SubElement(layer, inkex.addNS('path','svg'))
 			l1.set('style', style)
 			if transform:
 				l1.set('transform', transform)
@@ -155,4 +156,4 @@ class SheriffStarEffect(inkex.Effect):
 
 if __name__ == '__main__':
 	effect = SheriffStarEffect()
-	effect.affect()
+	effect.run()
