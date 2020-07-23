@@ -5,6 +5,7 @@ Create n-pointed star polygons (pentagram, hexagram, etc)
 """
 import inkex
 from math import *
+from lxml import etree
 
 def addPathCommand(a, cmd):
 	for x in cmd:
@@ -14,36 +15,36 @@ class XGramEffect(inkex.Effect):
 
 	def __init__(self):
 		inkex.Effect.__init__(self)
-		self.OptionParser.add_option('--tab',
-			action = 'store', type = 'string', dest = 'tab')
-		self.OptionParser.add_option('--points',
-			action='store', type='int', dest='points', default=5,
+		self.arg_parser.add_argument('--tab',
+			action = 'store', type = str, dest = 'tab')
+		self.arg_parser.add_argument('--points',
+			action='store', type=int, dest='points', default=5,
 			help='Number of points (or sides)')
-		self.OptionParser.add_option('--skip',
-			action='store', type='int', dest='skip', default=2,
+		self.arg_parser.add_argument('--skip',
+			action='store', type=int, dest='skip', default=2,
 			help='Vertex increment when connecting points')
-		self.OptionParser.add_option('--rotate',
-			action='store', type='float', dest='rotate', default=0,
+		self.arg_parser.add_argument('--rotate',
+			action='store', type=float, dest='rotate', default=0,
 			help='Rotation angle (clockwise, in degrees)')
-		self.OptionParser.add_option('--inner-circle',
-			action='store', type='inkbool', dest='inner_circle', default=False,
+		self.arg_parser.add_argument('--inner-circle',
+			action='store', type=inkex.Boolean, dest='inner_circle', default=False,
 			help='Connect points via inner circle')
-		self.OptionParser.add_option('--show-inner-circle',
-			action='store', type='inkbool', dest='show_inner_circle', default=True,
+		self.arg_parser.add_argument('--show-inner-circle',
+			action='store', type=inkex.Boolean, dest='show_inner_circle', default=True,
 			help='Show inner circle')
-		self.OptionParser.add_option('--inner-ratio',
-			action='store', type='int', dest='inner_ratio', default=50,
+		self.arg_parser.add_argument('--inner-ratio',
+			action='store', type=int, dest='inner_ratio', default=50,
 			help='Inner radius percentage (inner radius as a percentage of the outer radius)')
 
 	def effect(self):
-		layer = self.current_layer;
+		layer = self.svg.get_current_layer();
 
-		if len(self.selected) == 0:
+		if len(self.svg.selected) == 0:
 			inkex.errormsg('Please select a circle or ellipse.')
 			exit()
 
 		numValid = 0
-		for id, obj in self.selected.iteritems():
+		for id, obj in self.svg.selected.items():
 			cx,cy, rx,ry = 0,0, 0,0
 			style = ''
 			isValid = False
@@ -144,7 +145,7 @@ class XGramEffect(inkex.Effect):
 				addPathCommand(pts, ['z'])
 
 			# Create star polygon as a single path.
-			l1 = inkex.etree.SubElement(layer, inkex.addNS('path','svg'))
+			l1 = etree.SubElement(layer, inkex.addNS('path','svg'))
 			l1.set('style', style)
 			if transform:
 				l1.set('transform', transform)
@@ -155,4 +156,4 @@ class XGramEffect(inkex.Effect):
 
 if __name__ == '__main__':
 	effect = XGramEffect()
-	effect.affect()
+	effect.run()
