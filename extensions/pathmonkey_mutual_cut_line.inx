@@ -1,20 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
-
-<_name>Mutual Cut Line</_name>
+<name>Mutual Cut Line</name>
 <id>com.kacmarcik.pathmonkey.mutual_cut_line</id>
-<dependency type="executable" location="extensions">pathmonkey_mutual_cut_line.py</dependency>
-<dependency type="executable" location="extensions">inkex.py</dependency>
-
-<effect>
-	<object-type>path</object-type>
-	<effects-menu>
-		<submenu _name="PathMonkey"/>
-	</effects-menu>
-</effect>
-
-<script>
-<command reldir="extensions" interpreter="python">pathmonkey_mutual_cut_line.py</command>
-</script>
-
+   <effect>
+      <object-type>path</object-type>
+      <effects-menu>
+         <submenu name="PathMonkey" />
+      </effects-menu>
+   </effect>
+   <script>
+      <command reldir="extensions" interpreter="python">pathmonkey_mutual_cut_line.py</command>
+   </script>
 </inkscape-extension>
